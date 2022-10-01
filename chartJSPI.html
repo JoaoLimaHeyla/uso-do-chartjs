@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="display: flex;">
+    <div>
+        <canvas id="myChart" style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+
+    <div>
+        <canvas id="myChart2" style="position: relative; height:40vh; width:40vw;"></canvas>
+    </div>
+
+    <div>
+        <canvas id="myChart3" style="position: relative; height:40vh; width:19vw"></canvas>
+    </div>
+
+</body>
+<script>
+//GRÁFICO EM LINHAS 
+    const labelsHora = [
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+    ];
+//GRÁFICO EM BARRAS
+    const labelsMês = [
+      'Janeiro',
+      'Fevereiro',
+      'Março',
+      'Abril',
+      'Maio',
+      'Junho',
+    ];
+//GRÁFICO EM ROSQUINHA
+    const labelDesafio =[
+        'Vermelho',
+        'Verde',
+        'Azul'
+        
+    ]
+//LINHAS
+    const data = {
+      labels: labelsHora,
+      datasets: [{
+        label: 'Temperatura',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [15, 10, 5, 2, 20, 30, 45],
+      },
+      {
+        label: 'Umidade',
+        backgroundColor: 'rgb(0, 0, 255)',
+        borderColor: 'rgb(0, 0, 255)',
+        data: [14, 20, 8, 9, 26, 45, 45],
+
+      }
+    ]
+    };
+//BARRAS
+    const data2 = {
+      labels: labelsMês,
+      datasets: [{
+        label: 'Temperatura',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [15, 10, 5, 2, 20, 30, 45],
+      },
+      {
+        label: 'Umidade',
+        backgroundColor: 'rgb(0, 0, 255)',
+        borderColor: 'rgb(0, 0, 255)',
+        data: [14, 20, 8, 9, 26, 45, 45],
+
+      }
+    ]
+    };
+//ROSQUINHA
+    const desafio ={
+       labels:[ 
+        'Vermelho',
+        'Verde',
+        'Azul',
+    ],
+        datasets: [{
+        labels: 'Desafio',
+        data: [300,50,100],
+        backgroundColor: [
+                'rgb(255,0,0)',
+                'rgb(0,255,0)',
+                'rgb(0,0,255)'
+            ],
+            hoverOffset: 4
+        }]}
+//LINHAS
+    const config = {
+      type: 'line',
+      data: data,
+      options: {}
+    };
+//BARRAS
+    const config2 = {
+      type: 'bar',
+      data: data2,
+      options: {}
+    };
+//ROSQUINHA
+    const config3 = {
+      type: 'doughnut',
+      data: desafio,
+      options: {}
+    };
+  </script>
+  
+  <script>
+    //LINHAS
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+    //BARRAS
+    const myChart2 = new Chart(
+      document.getElementById('myChart2'),
+      config2
+    );
+    //ROSQUINHA
+    const myChart3 = new Chart(
+      document.getElementById('myChart3'),
+      config3
+    );
+  </script>
+  
+</html>
+
+
